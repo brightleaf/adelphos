@@ -65,7 +65,7 @@ gulp.task('buildcss', function () {
 
 gulp.task('buildjs', function () {
  
-    return browserify({ entries:['./public/js/app/app.jsx'], debug: true })
+    return browserify({ entries:['./app/app.js'], debug: true })
         .transform(babelify.configure({
           experimental: false
         })) 
