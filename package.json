@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "initdb":"sequelize init",
+    "migrate:create":"sequelize migration:create",
+    "migrate":"sequelize db:migrate"
   },
   "devDependencies": {
     "babelify": "^5.0.4",
