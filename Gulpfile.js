@@ -1,9 +1,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-  nodemon = require('gulp-nodemon'),
-  jshint = require('gulp-jshint'),
-  livereload = require('gulp-livereload'),
   browserify = require('browserify'),
   source = require('vinyl-source-stream'),
   rework = require('gulp-rework'),
@@ -11,25 +8,29 @@ var gulp = require('gulp'),
   vars = require('rework-vars'),
   imprt = require('rework-import'),
   reworkNPM = require('rework-npm'),
-  autoprefixer = require('gulp-autoprefixer'),
-  watch = require('gulp-watch'),
   babelify = require('babelify');
-
-
+var plugins = require('gulp-load-plugins')();
 //register nodemon task
+
+
 gulp.task('nodemon', function () {
-  nodemon({ script: './bin/www', env: { 'NODE_ENV': 'development' }})
+  plugins.nodemon({ script: './bin/www', env: { 'NODE_ENV': 'development' }})
     .on('restart');
 });
-
+gulp.task('test', function () {
+  require('babel/register')({ modules: 'common' });
+  return gulp.src('./tests/unit/*_spec.js', {read: false})
+        .pipe(plugins.mocha({ reporter: 'spec', compilers: 'js:babel/register' }));
+});
+ 
 gulp.task('watch', function() {
-    var server = livereload();
+    var server = plugins.livereload();
 
-    watch('./app/**/*.*' , function(file) {
+    plugins.watch('./app/**/*.*' , function(file) {
         gulp.start('buildjs');
         server.changed(file.path);
     });
-    watch( './css/**/*.css', function(file) {
+    plugins.watch( './css/**/*.css', function(file) {
         gulp.start('buildcss');
         server.changed(file.path);
     });
@@ -40,8 +41,8 @@ gulp.task('watch', function() {
 //lint js files
 gulp.task('lint', function() {
     gulp.src(['*.js','routes/*.js', 'public/*.js'])
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('default'));
 });
 gulp.task('buildcss', function () {
     return gulp.src('./css/style.css')
@@ -56,7 +57,7 @@ gulp.task('buildcss', function () {
             })
             )
         )
-        .pipe(autoprefixer({
+        .pipe(plugins.autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
