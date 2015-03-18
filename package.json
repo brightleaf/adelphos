@@ -4,18 +4,25 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "?"
+    "test": "gulp test",
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "rawmocha": "mocha --compilers js:babel/register ./tests/unit/*.js"
   },
   "devDependencies": {
     "babelify": "^5.0.4",
     "browserify": "^9.0.2",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
+    "gulp-babel": "^4.0.0",
     "gulp-jshint": "^1.9.2",
     "gulp-livereload": "^1.5.0",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-mocha": "^2.0.0",
     "gulp-nodemon": "latest",
     "gulp-rework": "^1.0.3",
     "gulp-watch": "~0.6.4",
+    "mocha": "^2.2.1",
     "mongo-migrate": "^0.1.0",
     "node-dev": "^2.6.1",
     "quixote": "^0.6.1",
