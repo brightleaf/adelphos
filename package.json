@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node-dev ./bin/www",
     "test": "gulp test",
     "watch": "gulp watch",
     "build": "gulp build",
@@ -44,6 +44,7 @@
     "morgan": "~1.0.0",
     "passport": "^0.2.1",
     "passport-google-oauth": "^0.2.0",
+    "pluralize": "^1.1.2",
     "pure-extras": "^1.0.0",
     "pure-typography": "^1.0.0",
     "purecss": "^0.6.0",
