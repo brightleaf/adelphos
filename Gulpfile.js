@@ -10,8 +10,25 @@ var gulp = require('gulp'),
   reworkNPM = require('rework-npm'),
   babelify = require('babelify');
 var plugins = require('gulp-load-plugins')();
-//register nodemon task
 
+gulp.task('coverage', function () {
+ 
+    var coverageServer = http.createServer(function (req, resp) {
+        req.pipe(fs.createWriteStream('coverage.json'))
+        resp.end()
+    });
+ 
+    var port = 7358;
+    coverageServer.listen(port);
+    console.log("Coverage Server Started on port", port);
+});
+ 
+gulp.task('testem', ['coverage'], function () {
+    gulp.src([''])
+        .pipe(plugins.testem({
+            configFile: 'testem.json'
+        }));
+});
 
 gulp.task('nodemon', function () {
   plugins.nodemon({ script: './bin/www', env: { 'NODE_ENV': 'development' }})

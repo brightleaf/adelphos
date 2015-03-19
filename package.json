@@ -21,6 +21,7 @@
     "gulp-mocha": "^2.0.0",
     "gulp-nodemon": "latest",
     "gulp-rework": "^1.0.3",
+    "gulp-testem": "0.0.1",
     "gulp-watch": "~0.6.4",
     "mocha": "^2.2.1",
     "mongo-migrate": "^0.1.0",
@@ -30,6 +31,7 @@
     "rework-inherit": "^0.2.3",
     "rework-npm": "^1.0.0",
     "rework-vars": "^3.1.1",
+    "testem": "^0.7.5",
     "vinyl-source-stream": "^1.0.0"
   },
   "dependencies": {
