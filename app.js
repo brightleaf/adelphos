@@ -16,6 +16,7 @@ import { OAuth2Strategy }  from 'passport-google-oauth';
 import xtconf from 'xtconf';
 import session from 'express-session';
 import processor from './auth/processor';
+import { get, put, del, post } from './resources/users';
 
 let conf = xtconf();
 
