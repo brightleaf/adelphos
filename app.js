@@ -30,7 +30,7 @@ passport.deserializeUser((obj, done) => {
 passport.use(new OAuth2Strategy({
     clientID: conf.get('google-key'),
     clientSecret: conf.get('google-secret'),
-    callbackURL: 'http://localhost:3000/auth/google/return'
+    callbackURL: 'http://localhost:4567/auth/google/return'
   }, processor));
 var app = express();
 
