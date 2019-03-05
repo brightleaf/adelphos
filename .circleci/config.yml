@@ -2,6 +2,7 @@ version: 2
 jobs:
   "node-11":
     docker:
+      - image: circleci/cci-demo-docker-primary:0.0.2
       - image: circleci/node:11.9
     working_directory: ~/publisher
     steps:
