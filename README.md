@@ -1,2 +1,15 @@
-# adelphos
-Another attempt at making something like a crm but for home groups and churches and what not
+# My Custom App
+
+```
+- docker
+- src
+-- server
+--- models
+--- public
+--- routes
+-- ui
+--- core
+--- features
+
+```
+
