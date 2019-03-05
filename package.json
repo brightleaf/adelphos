@@ -6,7 +6,7 @@
     "build": "webpack --config ./src/webpack/prod.config.js --mode production",
     "dev:ui": "webpack-dev-server --config ./src/webpack/dev.config.js --mode development",
     "model": "typesetter model",
-    "docker:up": "docker-compose -f ./docker/dev/docker-compose.yml up",
+    "docker:up": "docker-compose -f ./docker/dev/docker-compose.yml up --detach",
     "docker:down": "docker-compose -f ./docker/dev/docker-compose.yml down",
     "dev:db": "npm run docker:up",
     "dev:server": "nodemon ./src/server/index.js",
@@ -17,7 +17,9 @@
     "migrate:down": "knex migrate:rollback",
     "migrate:create": "typesetter migrate",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "wait": "node ./src/scripts/delay.js",
+    "test:full": "npm-run-all docker:up wait migrate:up test migrate:down docker:down"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
