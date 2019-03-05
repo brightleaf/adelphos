@@ -5,7 +5,7 @@ exports.up = knex =>
     table.string('lastName')
     table.string('email').unique()
     table.string('password')
-    table.string('username').unique()
+    table.enu('role', ['member', 'leader', 'admin']).defaultTo('member')
     table.timestamps(true, true)
   })
 

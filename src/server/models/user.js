@@ -34,6 +34,7 @@ module.exports = bookshelf.model(
         lastName,
         email,
         password: hashedPassword,
+        role: 'user',
       }).save()
     },
   }

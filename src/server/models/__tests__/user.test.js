@@ -6,9 +6,9 @@ describe('The User Model', async () => {
   })
   it('should create a user', async () => {
     user = new User({
-      username: 'username1',
       firstName: 'Tester',
       lastName: 'McTester',
+      role: 'member',
       email: 'testermctester@example.com',
     })
     const result = await user.save()
@@ -16,9 +16,9 @@ describe('The User Model', async () => {
   })
   it('should create a user and then update', async () => {
     user = new User({
-      username: 'username2',
       firstName: 'Tester2',
       lastName: 'McTester',
+      role: 'leader',
       email: 'testermctester2@example.com',
     })
     const result = await user.save()

@@ -7,7 +7,6 @@ const typeDefs = gql`
   type User {
     firstName: String
     lastName: String
-    username: String
     email: String
   }
 
@@ -30,7 +29,6 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    username: String!
     password: String!
   }
 
